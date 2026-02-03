@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 350 100% 97%;
+    --foreground: 350 80% 20%;
+
+    --card: 350 100% 98%;
+    --card-foreground: 350 80% 20%;
+
+    --popover: 350 100% 98%;
+    --popover-foreground: 350 80% 20%;
+
+    --primary: 350 80% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 350 60% 90%;
+    --secondary-foreground: 350 80% 30%;
+
+    --muted: 350 40% 94%;
+    --muted-foreground: 350 30% 50%;
+
+    --accent: 340 90% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 350 50% 85%;
+    --input: 350 50% 85%;
+    --ring: 350 80% 60%;
+
+    --radius: 1rem;
+
+    /* Custom Valentine's colors */
+    --rose-soft: 350 100% 95%;
+    --rose-medium: 350 80% 75%;
+    --rose-deep: 350 70% 55%;
+    --heart-red: 0 85% 60%;
+    --blush: 20 100% 90%;
+    
+    /* Gradients */
+    --gradient-romantic: linear-gradient(135deg, hsl(350 100% 95%) 0%, hsl(340 80% 90%) 50%, hsl(350 90% 85%) 100%);
+    --gradient-button-yes: linear-gradient(135deg, hsl(350 80% 60%) 0%, hsl(340 90% 55%) 100%);
+    --gradient-success: linear-gradient(135deg, hsl(350 100% 95%) 0%, hsl(20 100% 92%) 100%);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 350 30% 10%;
+    --foreground: 350 20% 95%;
+
+    --card: 350 30% 12%;
+    --card-foreground: 350 20% 95%;
+
+    --popover: 350 30% 12%;
+    --popover-foreground: 350 20% 95%;
+
+    --primary: 350 80% 65%;
+    --primary-foreground: 350 30% 10%;
+
+    --secondary: 350 30% 20%;
+    --secondary-foreground: 350 20% 90%;
+
+    --muted: 350 30% 18%;
+    --muted-foreground: 350 20% 65%;
+
+    --accent: 340 70% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 350 30% 25%;
+    --input: 350 30% 25%;
+    --ring: 350 80% 65%;
+    
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Quicksand', sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-romantic {
+    font-family: 'Dancing Script', cursive;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(350 80% 50%) 0%, hsl(340 90% 45%) 100%);
+  }
+  
+  .bg-romantic {
+    background: var(--gradient-romantic);
+  }
+  
+  .bg-success-gradient {
+    background: var(--gradient-success);
+  }
+}
+
+/* Heart floating animation */
+@keyframes float-heart {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.7;
+  }
+  25% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(-25px) rotate(0deg);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(-15px) rotate(-5deg);
+  }
+}
+
+@keyframes pulse-heart {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.animate-float-heart {
+  animation: float-heart 3s ease-in-out infinite;
+}
+
+.animate-pulse-heart {
+  animation: pulse-heart 1.5s ease-in-out infinite;
+}
+
+.animate-sparkle {
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+.animate-confetti {
+  animation: confetti-fall 3s linear infinite;
+}
