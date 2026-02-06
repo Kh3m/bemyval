@@ -3,7 +3,7 @@ import ValentineCard from "@/components/ValentineCard";
 
 const Index = () => {
   // You can change the name here! 💕
-  const valentineName = "Tohira";
+  const valentineName = "Mariam";
 
   return (
     <div className="min-h-screen bg-romantic overflow-hidden">
